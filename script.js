@@ -14,6 +14,8 @@ function generatePassword() {
   return password;
 }
 
+// Ask the user to identify the input criteria for their password
+// Ensure that they select at least 1 from the criteria list
 function getPasswordCriteria() {
   var useUppers = prompt("Would you like to use characters in your password? (Y/N");
   var useLowers = prompt("Would you like to use characters in your password? (Y/N");
@@ -34,11 +36,14 @@ function getPasswordCriteria() {
   }
 }
 
+// Defining the different characters to use for different password criteria
+
 const lowerChar = "abcdefghijklmnopqrstuvwxyz";
 const upperChar = "ABCDEFGHIJKLMNOPRSTUVWXYZ";
 const numbers = "1234567890";
 const symbols = "~!@#$%^&*()_+{}:?";
 
+// Based on the criteria the user selected, create a list of all characters to use in password
 function getPassword(passwordLength, passwordCriteria) {
   var chars = "";
   var buildPassword = "";
@@ -59,7 +64,7 @@ function getPassword(passwordLength, passwordCriteria) {
   }
   return buildPassword;
 }
-
+// Verify the password length is between 8 - 128 characters, otherwise ask again
 function getPasswordLength() {
   var numDigits = prompt("Password length must be between 8 - 128");
   while (numDigits < 8 || numDigits > 128) {
